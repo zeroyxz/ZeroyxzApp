@@ -34,6 +34,7 @@ namespace ZeroyxzApp1.Controllers
                 CloudQueueClient client = storageAccount.CreateCloudQueueClient();
                 CloudQueue queue = client.GetQueueReference("zeroyxzqueue");
                 queue.CreateIfNotExists();
+
                 Trace.TraceInformation("About to write a message to the queue");
                 queue.AddMessage(new CloudQueueMessage("The time is now" + DateTime.Now.ToShortTimeString()));
                 Trace.TraceWarning("Message has been written");
